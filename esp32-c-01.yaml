@@ -1,0 +1,43 @@
+esphome:
+  name: esp32-c-01
+  friendly_name: ESP32-C_01
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "PGn6tQ1ZlH830NTjtI07ueovNdOzdTRqakp+324zpQQ="
+
+ota:
+  - platform: esphome
+    password: "5850beb6455796d0c1389f09855f4887"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+# Optional manual IP
+  manual_ip:
+    static_ip: 192.168.178.161
+    gateway: 192.168.178.1
+    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Esp32-C-01 Fallback Hotspot"
+    password: "gO0gvrbW3wid"
+
+captive_portal:
+
+web_server:
+  
+bluetooth_proxy:
+  
+    
