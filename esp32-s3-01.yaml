@@ -367,7 +367,7 @@ lvgl:
               - homeassistant.action:
                   action: light.toggle
                   data:
-                    entity_id: light.schaltaktor_garage_output_0
+                    entity_id: light.mawd_250
 
         # ── LIGHT BUTTONS ROW (below main button) ─────────────────────────────
         - button:
