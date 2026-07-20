@@ -150,7 +150,7 @@ touchscreen:
 binary_sensor:
   - platform: homeassistant
     id: light_main
-    entity_id: light.schaltaktor_garage_output_0
+    entity_id: light.mawd_250
     trigger_on_initial_state: true
     on_state:
       then:
