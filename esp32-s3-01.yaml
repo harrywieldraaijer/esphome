@@ -252,7 +252,7 @@ binary_sensor:
 text_sensor:
   - platform: homeassistant
     id: temp_outdoor
-    entity_id: sensor.temperatursensor_aussen_temperature
+    entity_id: sensor.alpstuga_air_quality_monitor_temperatuur
     on_value:
       then:
         - lvgl.label.update:
