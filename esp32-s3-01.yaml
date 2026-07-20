@@ -360,7 +360,7 @@ lvgl:
             widgets:
               - label:
                   align: CENTER
-                  text: "Licht"
+                  text: "Dining table"
                   text_font: montserrat_20
                   text_color: 0xE2E8F0
             on_click:
