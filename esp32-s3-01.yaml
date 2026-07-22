@@ -689,6 +689,9 @@ lvgl:
       on_swipe_right:
         - lambda: 'lv_indev_wait_release(lv_indev_get_act());'
         - lvgl.page.previous:
+      on_swipe_left:
+        - lambda: 'lv_indev_wait_release(lv_indev_get_act());'
+        - lvgl.page.next:
 
       widgets:
 
@@ -857,10 +860,7 @@ lvgl:
       on_swipe_right:
         - lambda: 'lv_indev_wait_release(lv_indev_get_act());'
         - lvgl.page.previous:
-      on_swipe_left:
-        - lambda: 'lv_indev_wait_release(lv_indev_get_act());'
-        - lvgl.page.next:
-
+      
       widgets:
 
         # ── WASSERSTECKDOSE (full-width, prominent) ────────────────────────────
@@ -883,7 +883,7 @@ lvgl:
             widgets:
               - label:
                   align: CENTER
-                  text: "Wassersteckdose"
+                  text: "Test page Harry"
                   text_font: montserrat_24
             on_click:
               - homeassistant.action:
