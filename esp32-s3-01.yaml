@@ -1019,4 +1019,12 @@ lvgl:
             height: 10
             radius: 5
             border_width: 0
+            bg_color: 0x334155
+        - obj:
+            x: 265
+            y: 462
+            width: 10
+            height: 10
+            radius: 5
+            border_width: 0
             bg_color: 0x64748B
