@@ -849,13 +849,17 @@ lvgl:
             radius: 5
             border_width: 0
             bg_color: 0x64748B
-            # ── PAGE 2: BEWÄSSERUNG ───────────────────────────────────────────────────
-    - id: irrigation_page
+
+            # ── PAGE 3: Test Harry ───────────────────────────────────────────────────
+    - id: Test_Page_Harry
       bg_color: 0x0F172A
       bg_opa: COVER
       on_swipe_right:
         - lambda: 'lv_indev_wait_release(lv_indev_get_act());'
         - lvgl.page.previous:
+      on_swipe_left:
+        - lambda: 'lv_indev_wait_release(lv_indev_get_act());'
+        - lvgl.page.next:
 
       widgets:
 
