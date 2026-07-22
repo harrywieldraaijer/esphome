@@ -865,7 +865,7 @@ lvgl:
 
         # ── WASSERSTECKDOSE (full-width, prominent) ────────────────────────────
         - button:
-            id: btn_irr_h1
+            id: btn_irr_h1_Harry
             x: 10
             y: 10
             width: 460
@@ -893,7 +893,7 @@ lvgl:
 
         # ── 17a VOR DEM HAUS (top-left) ────────────────────────────────────────
         - button:
-            id: btn_irr_h3
+            id: btn_irr_h3_Harry
             x: 10
             y: 130
             width: 225
@@ -921,7 +921,7 @@ lvgl:
 
         # ── 17a NEBEN DEM HAUS (top-right) ────────────────────────────────────
         - button:
-            id: btn_irr_h2
+            id: btn_irr_h2_Harry
             x: 245
             y: 130
             width: 225
@@ -949,7 +949,7 @@ lvgl:
 
         # ── 17 VOR DEM HAUS 1 (bottom-left) ───────────────────────────────────
         - button:
-            id: btn_irr_a1
+            id: btn_irr_a1_Harry
             x: 10
             y: 290
             width: 225
@@ -977,7 +977,7 @@ lvgl:
 
         # ── 17 VOR DEM HAUS 2 (bottom-right) ──────────────────────────────────
         - button:
-            id: btn_irr_a2
+            id: btn_irr_a2_Harry
             x: 245
             y: 290
             width: 225
