@@ -161,7 +161,7 @@ binary_sensor:
 
   - platform: homeassistant
     id: light_garage2
-    entity_id: light.schaltaktor_garage_output_1
+    entity_id: switch.0xa4c1382cdaa57eaa
     trigger_on_initial_state: true
     on_state:
       then:
@@ -387,13 +387,13 @@ lvgl:
             widgets:
               - label:
                   align: CENTER
-                  text: "Licht\nGarage 2"
+                  text: "Light\nSide desk"
                   text_font: montserrat_12
             on_click:
               - homeassistant.action:
                   action: light.toggle
                   data:
-                    entity_id: light.schaltaktor_garage_output_1
+                    entity_id: switch.0xa4c1382cdaa57eaa
 
         - button:
             id: btn_light_front
@@ -412,7 +412,7 @@ lvgl:
             widgets:
               - label:
                   align: CENTER
-                  text: "Licht\nvorne"
+                  text: "Light\nBarbara"
                   text_font: montserrat_12
             on_click:
               - homeassistant.action:
@@ -437,7 +437,7 @@ lvgl:
             widgets:
               - label:
                   align: CENTER
-                  text: "Licht\nhinten"
+                  text: "Light\nReading"
                   text_font: montserrat_12
             on_click:
               - homeassistant.action:
