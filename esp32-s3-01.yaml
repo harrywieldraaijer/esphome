@@ -161,7 +161,7 @@ binary_sensor:
 
   - platform: homeassistant
     id: light_garage2
-    entity_id: switch.0xa4c1382cdaa57eaa
+    entity_id: light.plug_livingroom_staandelamp
     trigger_on_initial_state: true
     on_state:
       then:
@@ -393,7 +393,7 @@ lvgl:
               - homeassistant.action:
                   action: light.toggle
                   data:
-                    entity_id: switch.0xa4c1382cdaa57eaa
+                    entity_id: light.plug_livingroom_staandelamp
 
         - button:
             id: btn_light_front
