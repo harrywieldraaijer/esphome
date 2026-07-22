@@ -849,3 +849,170 @@ lvgl:
             radius: 5
             border_width: 0
             bg_color: 0x64748B
+            # ── PAGE 2: BEWÄSSERUNG ───────────────────────────────────────────────────
+    - id: irrigation_page
+      bg_color: 0x0F172A
+      bg_opa: COVER
+      on_swipe_right:
+        - lambda: 'lv_indev_wait_release(lv_indev_get_act());'
+        - lvgl.page.previous:
+
+      widgets:
+
+        # ── WASSERSTECKDOSE (full-width, prominent) ────────────────────────────
+        - button:
+            id: btn_irr_h1
+            x: 10
+            y: 10
+            width: 460
+            height: 110
+            checkable: true
+            radius: 16
+            border_width: 0
+            bg_color: 0x1E3A5F
+            text_color: 0x93C5FD
+            checked:
+              bg_color: 0x155E75
+              text_color: 0x22D3EE
+            pressed:
+              bg_color: 0x172F4A
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "Wassersteckdose"
+                  text_font: montserrat_24
+            on_click:
+              - homeassistant.action:
+                  action: input_boolean.toggle
+                  data:
+                    entity_id: input_boolean.bewasserung_kreis_h1
+
+        # ── 17a VOR DEM HAUS (top-left) ────────────────────────────────────────
+        - button:
+            id: btn_irr_h3
+            x: 10
+            y: 130
+            width: 225
+            height: 150
+            checkable: true
+            radius: 14
+            border_width: 0
+            bg_color: 0x1E293B
+            text_color: 0x64748B
+            checked:
+              bg_color: 0x0C4A6E
+              text_color: 0x7DD3FC
+            pressed:
+              bg_color: 0x172030
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "17a vor\ndem Haus"
+                  text_font: montserrat_16
+            on_click:
+              - homeassistant.action:
+                  action: input_boolean.toggle
+                  data:
+                    entity_id: input_boolean.bewasserung_kreis_h3
+
+        # ── 17a NEBEN DEM HAUS (top-right) ────────────────────────────────────
+        - button:
+            id: btn_irr_h2
+            x: 245
+            y: 130
+            width: 225
+            height: 150
+            checkable: true
+            radius: 14
+            border_width: 0
+            bg_color: 0x1E293B
+            text_color: 0x64748B
+            checked:
+              bg_color: 0x0C4A6E
+              text_color: 0x7DD3FC
+            pressed:
+              bg_color: 0x172030
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "17a neben\ndem Haus"
+                  text_font: montserrat_16
+            on_click:
+              - homeassistant.action:
+                  action: input_boolean.toggle
+                  data:
+                    entity_id: input_boolean.bewasserung_kreis_h2
+
+        # ── 17 VOR DEM HAUS 1 (bottom-left) ───────────────────────────────────
+        - button:
+            id: btn_irr_a1
+            x: 10
+            y: 290
+            width: 225
+            height: 150
+            checkable: true
+            radius: 14
+            border_width: 0
+            bg_color: 0x1E293B
+            text_color: 0x64748B
+            checked:
+              bg_color: 0x0C4A6E
+              text_color: 0x7DD3FC
+            pressed:
+              bg_color: 0x172030
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "17 vor dem\nHaus 1"
+                  text_font: montserrat_16
+            on_click:
+              - homeassistant.action:
+                  action: input_boolean.toggle
+                  data:
+                    entity_id: input_boolean.bewasserung_kreis_a1
+
+        # ── 17 VOR DEM HAUS 2 (bottom-right) ──────────────────────────────────
+        - button:
+            id: btn_irr_a2
+            x: 245
+            y: 290
+            width: 225
+            height: 150
+            checkable: true
+            radius: 14
+            border_width: 0
+            bg_color: 0x1E293B
+            text_color: 0x64748B
+            checked:
+              bg_color: 0x0C4A6E
+              text_color: 0x7DD3FC
+            pressed:
+              bg_color: 0x172030
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "17 vor dem\nHaus 2"
+                  text_font: montserrat_16
+            on_click:
+              - homeassistant.action:
+                  action: input_boolean.toggle
+                  data:
+                    entity_id: input_boolean.bewasserung_kreis_a2
+
+        # ── PAGE INDICATOR DOTS ───────────────────────────────────────────────
+        - obj:
+            x: 233
+            y: 462
+            width: 10
+            height: 10
+            radius: 5
+            border_width: 0
+            bg_color: 0x334155
+        - obj:
+            x: 249
+            y: 462
+            width: 10
+            height: 10
+            radius: 5
+            border_width: 0
+            bg_color: 0x64748B
