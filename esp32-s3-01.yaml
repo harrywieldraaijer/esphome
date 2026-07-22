@@ -172,7 +172,7 @@ binary_sensor:
 
   - platform: homeassistant
     id: light_front
-    entity_id: light.schaltaktor_garage_output_2
+    entity_id: light.0xb40ecfd1a15a0000
     trigger_on_initial_state: true
     on_state:
       then:
@@ -183,7 +183,7 @@ binary_sensor:
 
   - platform: homeassistant
     id: light_rear
-    entity_id: light.schaltaktor_garage_output_3
+    entity_id: light.plug_switch_power_02
     trigger_on_initial_state: true
     on_state:
       then:
@@ -418,7 +418,7 @@ lvgl:
               - homeassistant.action:
                   action: light.toggle
                   data:
-                    entity_id: light.schaltaktor_garage_output_2
+                    entity_id: light.0xb40ecfd1a15a0000
 
         - button:
             id: btn_light_rear
@@ -443,7 +443,7 @@ lvgl:
               - homeassistant.action:
                   action: light.toggle
                   data:
-                    entity_id: light.schaltaktor_garage_output_3
+                    entity_id: light.plug_switch_power_02
 
         # ── TEMPERATURE + TIME DISPLAY (below light buttons) ──────────────────
         - obj:
