@@ -294,7 +294,15 @@ text_sensor:
               if (x == "opening") return std::string("Oeffnet...");
               if (x == "closing") return std::string("Schliesst...");
               return std::string("?");
-
+              
+  - platform: homeassistant
+    id: light_brightness
+    entity_id: light.your_dimmer
+    attribute: brightness
+    on_value:
+        - lvgl.slider.update:
+            id: dimmer_slider
+            value: !lambda return x;
 # ── LVGL UI ───────────────────────────────────────────────────────────────────
 #
 #  Page 1 layout (480×480):
@@ -891,6 +899,23 @@ lvgl:
                   data:
                     entity_id: input_boolean.bewasserung_kreis_h1
 
+        - slider:
+            id: dimmer_slider
+            x: 20
+            y: 50
+            width: 20
+            height: 220
+            pad_all: 8
+            min_value: 0
+            max_value: 255
+            ext_click_area: 20
+            on_release:
+              - homeassistant.action:
+                  action: light.turn_on
+                  data:
+                    entity_id: light.your_dimmer
+                    brightness: !lambda return int(x);
+                    
         # ── PAGE INDICATOR DOTS ───────────────────────────────────────────────
         - obj:
             x: 233
