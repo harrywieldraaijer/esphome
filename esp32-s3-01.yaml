@@ -316,6 +316,20 @@ sensor:
                   value: !lambda |-
                     return (int)((x / 255.0) * 100);
 
+# binary_sensor:
+#  - platform: homeassistant
+#    id: light_state
+#    entity_id: light.0xb40ecfd1a15a0000
+#    on_state:
+#      then:
+#        - if:
+#            condition:
+#              binary_sensor.is_off: light_state
+#            then:
+#              - lvgl.slider.update:
+#                  id: dimmer_slider
+#                  value: 0
+
 # ── LVGL UI ───────────────────────────────────────────────────────────────────
 #
 #  Page 1 layout (480×480):
@@ -915,7 +929,7 @@ lvgl:
         - slider:
             id: dimmer_slider
             x: 20
-            y: 80
+            y: 200
             width: 400
             min_value: 0
             max_value: 100
