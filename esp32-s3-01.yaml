@@ -295,14 +295,26 @@ text_sensor:
               if (x == "closing") return std::string("Schliesst...");
               return std::string("?");
               
-#  - platform: homeassistant
-#    id: light_brightness
-#    entity_id: light.your_dimmer
-#    attribute: brightness
-#    on_value:
-#        - lvgl.slider.update:
-#            id: dimmer_slider
-#            value: !lambda return x;
+###########################################################
+# Home Assistant brightness sensor
+###########################################################
+
+sensor:
+  - platform: homeassistant
+    id: ha_brightness
+    entity_id: light.0xb40ecfd1a15a0000
+    attribute: brightness
+    internal: true
+    on_value:
+      then:
+        - if:
+            condition:
+              lambda: 'return !isnan(x);'
+            then:
+              - lvgl.slider.update:
+                  id: dimmer_slider
+                  value: !lambda |-
+                    return (int)((x / 255.0) * 100);
 
 # ── LVGL UI ───────────────────────────────────────────────────────────────────
 #
@@ -900,22 +912,23 @@ lvgl:
                   data:
                     entity_id: input_boolean.bewasserung_kreis_h1
 
- #       - slider:
- #           id: dimmer_slider
- #           x: 20
- #           y: 50
- #           width: 20
- #           height: 220
- #           pad_all: 8
- #           min_value: 0
- #           max_value: 255
- #           ext_click_area: 20
- #           on_release:
- #             - homeassistant.action:
- #                 action: light.turn_on
- #                 data:
- #                   entity_id: light.your_dimmer
- #                   brightness: !lambda return int(x);
+        - slider:
+            id: dimmer_slider
+            x: 20
+            y: 40
+            width: 260
+            min_value: 0
+            max_value: 100
+
+            on_value:
+              then:
+                - homeassistant.action:
+                    action: light.turn_on
+                    data:
+                      entity_id: light.0xb40ecfd1a15a0000
+                      brightness: !lambda |-
+                        return (int)(x * 255 / 100);
+
                     
         # ── PAGE INDICATOR DOTS ───────────────────────────────────────────────
         - obj:
