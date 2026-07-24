@@ -915,19 +915,28 @@ lvgl:
         - slider:
             id: dimmer_slider
             x: 20
-            y: 40
-            width: 260
+            y: 80
+            width: 400
             min_value: 0
             max_value: 100
 
-            on_value:
+            on_release:
               then:
-                - homeassistant.action:
-                    action: light.turn_on
-                    data:
-                      entity_id: light.0xb40ecfd1a15a0000
-                      brightness: !lambda |-
-                        return (int)(x * 255 / 100);
+                - if:
+                    condition:
+                      lambda: 'return x < 5;'
+                    then:
+                      - homeassistant.action:
+                          action: light.turn_off
+                          data:
+                            entity_id: light.0xb40ecfd1a15a0000
+                    else:
+                      - homeassistant.action:
+                          action: light.turn_on
+                          data:
+                            entity_id: light.0xb40ecfd1a15a0000
+                            brightness: !lambda |-
+                              return (int)(x * 255 / 100);
 
                     
         # ── PAGE INDICATOR DOTS ───────────────────────────────────────────────
