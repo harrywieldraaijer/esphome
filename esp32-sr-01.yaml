@@ -270,7 +270,7 @@ binary_sensor:
 # Set slider to zero when it is switched off by home assistant:
   - platform: homeassistant
     id: light_state
-    entity_id: light.0xb40ecfd1a15a0000
+    entity_id: light.dimmer_01
     on_state:
       then:
         - if:
@@ -342,7 +342,7 @@ text_sensor:
 sensor:
   - platform: homeassistant
     id: ha_brightness
-    entity_id: light.0xb40ecfd1a15a0000
+    entity_id: light.dimmer_01
     attribute: brightness
     internal: true
     on_value:
@@ -1009,12 +1009,12 @@ lvgl:
                       - homeassistant.action:
                           action: light.turn_off
                           data:
-                            entity_id: light.0xb40ecfd1a15a0000
+                            entity_id: light.dimmer_01
                     else:
                       - homeassistant.action:
                           action: light.turn_on
                           data:
-                            entity_id: light.0xb40ecfd1a15a0000
+                            entity_id: light.dimmer_01
                             brightness: !lambda |-
                               return (int)(x * 255 / 100);
 
