@@ -166,6 +166,17 @@ binary_sensor:
             id: btn_mainlight
             state:
               checked: !lambda return x;
+              
+  - platform: homeassistant
+    id: light_main_0
+    entity_id: Relay.Sonoff_01
+    trigger_on_initial_state: true
+    on_state:
+      then:
+        - lvgl.widget.update:
+            id: btn_mainlight_0
+            state:
+              checked: !lambda return x;
 
   - platform: homeassistant
     id: light_garage2
@@ -979,7 +990,7 @@ lvgl:
               - homeassistant.action:
                   action: light.toggle
                   data:
-                    entity_id: light.relay_sonoff_matter_01
+                    entity_id: Relay.Sonoff_01
                     
         - slider:
             id: dimmer_slider
