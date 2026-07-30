@@ -63,6 +63,14 @@ time:
                 snprintf(buf, sizeof(buf), "%02d:%02d", t.hour, t.minute);
                 return std::string(buf);
 
+          - lvgl.label.update:
+              id: time_label_0
+              text: !lambda |
+                char buf[6];
+                auto t = id(ha_time).now();
+                snprintf(buf, sizeof(buf), "%02d:%02d", t.hour, t.minute);
+                return std::string(buf);
+
 output:
   - platform: ledc
     id: backlight_output
@@ -272,7 +280,14 @@ text_sensor:
         - lvgl.label.update:
             id: temp_outdoor_label
             text: !lambda return x + " °C";
-
+  - platform: homeassistant
+    id: temp_outdoor_0
+    entity_id: sensor.alpstuga_air_quality_monitor_temperatuur
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: temp_outdoor_label
+            text: !lambda return x + " °C";
   - platform: homeassistant
     id: cover_garage1_state
     entity_id: cover.garage_door_opener_garage_01_tor
@@ -900,32 +915,31 @@ lvgl:
 
         # ── WASSERSTECKDOSE (full-width, prominent) ────────────────────────────
         - button:
-            id: btn_irr_h1_Harry
+            id: btn_mainlight_0
             x: 10
-            y: 10
-            width: 460
-            height: 110
+            y: 150
+            width: 250
+            height: 240
             checkable: true
-            radius: 16
+            radius: 18
             border_width: 0
             bg_color: 0x1E3A5F
-            text_color: 0x93C5FD
             checked:
-              bg_color: 0x155E75
-              text_color: 0x22D3EE
+              bg_color: 0x1D4ED8
             pressed:
               bg_color: 0x172F4A
             widgets:
               - label:
                   align: CENTER
-                  text: "Test page Harry"
-                  text_font: montserrat_24
+                  text: "Main Light"
+                  text_font: montserrat_20
+                  text_color: 0xE2E8F0
             on_click:
               - homeassistant.action:
-                  action: input_boolean.toggle
+                  action: light.toggle
                   data:
-                    entity_id: input_boolean.bewasserung_kreis_h1
-
+                    entity_id: light.relay_sonoff_matter_01
+                    
 # ── TEMPERATURE + TIME DISPLAY  ──────────────────
         - obj:
             x: 10
