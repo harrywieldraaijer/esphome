@@ -286,7 +286,7 @@ text_sensor:
     on_value:
       then:
         - lvgl.label.update:
-            id: temp_outdoor_label
+            id: temp_outdoor_label_0
             text: !lambda return x + " °C";
   - platform: homeassistant
     id: cover_garage1_state
@@ -912,34 +912,7 @@ lvgl:
         - lvgl.page.previous:
       
       widgets:
-
-        # ── WASSERSTECKDOSE (full-width, prominent) ────────────────────────────
-        - button:
-            id: btn_mainlight_0
-            x: 10
-            y: 150
-            width: 250
-            height: 240
-            checkable: true
-            radius: 18
-            border_width: 0
-            bg_color: 0x1E3A5F
-            checked:
-              bg_color: 0x1D4ED8
-            pressed:
-              bg_color: 0x172F4A
-            widgets:
-              - label:
-                  align: CENTER
-                  text: "Main Light"
-                  text_font: montserrat_20
-                  text_color: 0xE2E8F0
-            on_click:
-              - homeassistant.action:
-                  action: light.toggle
-                  data:
-                    entity_id: light.relay_sonoff_matter_01
-                    
+        
 # ── TEMPERATURE + TIME DISPLAY  ──────────────────
         - obj:
             x: 10
@@ -981,6 +954,33 @@ lvgl:
                   text_font: montserrat_24
                   text_color: 0xE2E8F0
 
+        # ── Main Kitchen Light ────────────────────────────
+        - button:
+            id: btn_mainlight_0
+            x: 10
+            y: 120
+            width: 250
+            height: 240
+            checkable: true
+            radius: 18
+            border_width: 0
+            bg_color: 0x1E3A5F
+            checked:
+              bg_color: 0x1D4ED8
+            pressed:
+              bg_color: 0x172F4A
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "Main Light"
+                  text_font: montserrat_20
+                  text_color: 0xE2E8F0
+            on_click:
+              - homeassistant.action:
+                  action: light.toggle
+                  data:
+                    entity_id: light.relay_sonoff_matter_01
+                    
         - slider:
             id: dimmer_slider
             x: 20
