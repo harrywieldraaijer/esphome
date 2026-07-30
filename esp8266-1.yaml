@@ -1,6 +1,6 @@
 substitutions:
   name: esp8266-1
-  friendly_name: ESPHome Web d779e5
+  friendly_name: ESP8166_01
 
 esphome:
   name: ${name}
