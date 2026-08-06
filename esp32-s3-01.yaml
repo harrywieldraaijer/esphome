@@ -970,8 +970,8 @@ lvgl:
             id: btn_mainlight_0
             x: 10
             y: 120
-            width: 200
-            height: 200
+            width: 180
+            height: 180
             checkable: true
             radius: 18
             border_width: 0
@@ -1072,7 +1072,7 @@ lvgl:
         - slider:
             id: dimmer_slider
             x: 20
-            y: 400
+            y: 430
             width: 400
             min_value: 0
             max_value: 100
