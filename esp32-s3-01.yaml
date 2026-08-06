@@ -970,8 +970,8 @@ lvgl:
             id: btn_mainlight_0
             x: 10
             y: 120
-            width: 250
-            height: 240
+            width: 200
+            height: 200
             checkable: true
             radius: 18
             border_width: 0
@@ -996,7 +996,7 @@ lvgl:
         - button:
             id: btn_light_garage2_0
             x: 10
-            y: 258
+            y: 300
             width: 78
             height: 80
             checkable: true
@@ -1021,7 +1021,7 @@ lvgl:
         - button:
             id: btn_light_front_0
             x: 96
-            y: 258
+            y: 300
             width: 78
             height: 80
             checkable: true
@@ -1046,7 +1046,7 @@ lvgl:
         - button:
             id: btn_light_rear_0
             x: 182
-            y: 258
+            y: 300
             width: 78
             height: 80
             checkable: true
