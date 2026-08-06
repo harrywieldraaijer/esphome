@@ -992,7 +992,7 @@ lvgl:
                   data:
                     entity_id: light.relay_sonoff_01
  
-                    # ── Main Kitchen Light ────────────────────────────
+        # ── Sink Light ────────────────────────────
         - button:
             id: btn_mainlight_1
             x: 195
@@ -1010,7 +1010,7 @@ lvgl:
             widgets:
               - label:
                   align: CENTER
-                  text: "Main Light"
+                  text: "Sink Light"
                   text_font: montserrat_20
                   text_color: 0xE2E8F0
             on_click:
@@ -1023,7 +1023,7 @@ lvgl:
         - button:
             id: btn_light_garage2_0
             x: 10
-            y: 300
+            y: 310
             width: 78
             height: 80
             checkable: true
@@ -1048,7 +1048,7 @@ lvgl:
         - button:
             id: btn_light_front_0
             x: 96
-            y: 300
+            y: 310
             width: 78
             height: 80
             checkable: true
@@ -1073,7 +1073,7 @@ lvgl:
         - button:
             id: btn_light_rear_0
             x: 182
-            y: 300
+            y: 310
             width: 78
             height: 80
             checkable: true
@@ -1100,7 +1100,7 @@ lvgl:
             id: dimmer_slider
             x: 20
             y: 430
-            width: 400
+            width: 380
             min_value: 0
             max_value: 100
 
