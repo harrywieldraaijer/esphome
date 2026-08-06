@@ -992,33 +992,6 @@ lvgl:
                   data:
                     entity_id: light.relay_sonoff_01
 
-         # ── MAIN LIGHT BUTTON (top-left, large) ───────────────────────────────
-        - button:
-            id: btn_mainlight_1
-            x: 10
-            y: 10
-            width: 250
-            height: 240
-            checkable: true
-            radius: 18
-            border_width: 0
-            bg_color: 0x1E3A5F
-            checked:
-              bg_color: 0x1D4ED8
-            pressed:
-              bg_color: 0x172F4A
-            widgets:
-              - label:
-                  align: CENTER
-                  text: "Dining table"
-                  text_font: montserrat_20
-                  text_color: 0xE2E8F0
-            on_click:
-              - homeassistant.action:
-                  action: light.toggle
-                  data:
-                    entity_id: light.mawd_250
-
         # ── LIGHT BUTTONS ROW (below main button) ─────────────────────────────
         - button:
             id: btn_light_garage2_0
@@ -1046,7 +1019,7 @@ lvgl:
                     entity_id: light.plug_livingroom_staandelamp
 
         - button:
-            id: btn_light_front_1
+            id: btn_light_front_0
             x: 96
             y: 258
             width: 78
@@ -1071,7 +1044,7 @@ lvgl:
                     entity_id: light.0xb40ecfd1a15a0000
 
         - button:
-            id: btn_light_rear_1
+            id: btn_light_rear_0
             x: 182
             y: 258
             width: 78
