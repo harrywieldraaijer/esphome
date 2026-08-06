@@ -969,9 +969,9 @@ lvgl:
         - button:
             id: btn_mainlight_0
             x: 10
-            y: 120
-            width: 180
-            height: 180
+            y: 110
+            width: 175
+            height: 175
             checkable: true
             radius: 18
             border_width: 0
