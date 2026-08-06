@@ -1098,7 +1098,7 @@ lvgl:
  
         - button:
             id: btn_light_rear_01
-            x: 168
+            x: 268
             y: 310
             width: 78
             height: 80
