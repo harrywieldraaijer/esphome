@@ -1095,7 +1095,32 @@ lvgl:
                   data:
                     entity_id: light.plug_switch_power_02
                    
-                    
+ 
+        - button:
+            id: btn_light_rear_01
+            x: 168
+            y: 310
+            width: 78
+            height: 80
+            checkable: true
+            radius: 12
+            border_width: 0
+            bg_color: 0x1E293B
+            text_color: 0x64748B
+            checked:
+              bg_color: 0x92400E
+              text_color: 0xFDE68A
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "Light\nReading"
+                  text_font: montserrat_12
+            on_click:
+              - homeassistant.action:
+                  action: light.toggle
+                  data:
+                    entity_id: light.plug_switch_power_02
+                   
         - slider:
             id: dimmer_slider
             x: 20
