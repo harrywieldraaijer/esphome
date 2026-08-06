@@ -991,6 +991,33 @@ lvgl:
                   action: light.toggle
                   data:
                     entity_id: light.relay_sonoff_01
+ 
+                    # ── Main Kitchen Light ────────────────────────────
+        - button:
+            id: btn_mainlight_1
+            x: 195
+            y: 110
+            width: 175
+            height: 175
+            checkable: true
+            radius: 18
+            border_width: 0
+            bg_color: 0x1E3A5F
+            checked:
+              bg_color: 0x1D4ED8
+            pressed:
+              bg_color: 0x172F4A
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "Main Light"
+                  text_font: montserrat_20
+                  text_color: 0xE2E8F0
+            on_click:
+              - homeassistant.action:
+                  action: light.toggle
+                  data:
+                    entity_id: light.relay_sonoff_01
 
         # ── LIGHT BUTTONS ROW (below main button) ─────────────────────────────
         - button:
