@@ -1100,7 +1100,7 @@ lvgl:
             id: dimmer_slider
             x: 20
             y: 430
-            width: 370
+            width: 360
             min_value: 0
             max_value: 100
 
