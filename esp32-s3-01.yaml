@@ -340,6 +340,22 @@ text_sensor:
 ###########################################################
 
 sensor:
+   # Light 1 state (on/off)
+  - platform: homeassistant
+    id: light1_state
+    entity_id: light.dimmer_01
+    internal: true
+    on_value:
+      then:
+        - lvgl.button.update:
+            id: btn1
+            bg_color: !lambda |-
+              if (id(light1_state).state == "on") {
+                return 0xFF0000;   // red
+              } else {
+                return 0x00FF00;   // green
+              }
+
   - platform: homeassistant
     id: ha_brightness
     entity_id: light.dimmer_01
