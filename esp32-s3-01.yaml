@@ -289,16 +289,18 @@ binary_sensor:
     internal: true
     on_state:
       then:
-        - lvgl.button.update:
-            id: btn1
-            bg_color: !lambda |-
-              if (id(light1_state).state == "on") {
-               return 0xFF0000;   // red
-              } else {
-                return 0x00FF00;   // green
-              }
-
-                  
+          - if:
+              condition:
+                binary_sensor.is_off: light1_state
+              then:
+                - lvgl.button.update:
+                    id: btn1
+                    bg_color: 0xFF0000  # // red
+              else:
+                - lvgl.button.update:
+                    id: btn1
+                    bg_color: 0x00FF00  # // green
+                
 # ── SENSOR AND COVER STATES FROM HOME ASSISTANT ───────────────────────────────
 text_sensor:
   - platform: homeassistant
