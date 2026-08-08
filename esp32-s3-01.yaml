@@ -325,7 +325,7 @@ binary_sensor:
 # Light 2 state (on/off)
   - platform: homeassistant
     id: light2_state
-    entity_id: light.dimmer_01
+    entity_id: light.0xb40ecfd1a15a0000
     internal: true
     on_state:
       then:
