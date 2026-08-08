@@ -1073,30 +1073,23 @@ lvgl:
                   data:
                     entity_id: light.plug_livingroom_staandelamp
 
+# Button 1 – toggles light_1
         - button:
-            id: btn_light_front_0
+            id: btn1
             x: 96
             y: 310
             width: 78
             height: 80
-            checkable: true
-            radius: 12
-            border_width: 0
-            bg_color: 0x1E293B
-            text_color: 0x64748B
-            checked:
-              bg_color: 0x92400E
-              text_color: 0xFDE68A
-            widgets:
-              - label:
-                  align: CENTER
-                  text: "Light\nBarbara"
-                  text_font: montserrat_12
+            text: "Area 1"
+            text_font: montserrat_14
+            bg_color: 0x00FF00   # initial green (off)
             on_click:
-              - homeassistant.action:
-                  action: light.toggle
-                  data:
-                    entity_id: light.0xb40ecfd1a15a0000
+              then:
+                - homeassistant.service:
+                    service: light.toggle
+                    data:
+                      entity_id: light.dimmer_01
+
 
         - button:
             id: btn_light_rear_0
