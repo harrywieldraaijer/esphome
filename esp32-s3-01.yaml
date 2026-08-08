@@ -221,7 +221,17 @@ binary_sensor:
             id: btn2
             state:
               checked: !lambda return x;
-
+    
+  - platform: homeassistant
+    id: light_rear_01
+    entity_id: light.0xb40ecfd1a15a0000
+    trigger_on_initial_state: true
+    on_state:
+      then:
+        - lvgl.widget.update:
+            id: btn3
+            state:
+              checked: !lambda return x;
               
 # ── IRRIGATION STATES FROM HOME ASSISTANT ─────────────────────────────────────
   - platform: homeassistant
@@ -1170,7 +1180,7 @@ lvgl:
                    
  
         - button:
-            id: btn_light_rear_01
+            id: btn3
             x: 268
             y: 310
             width: 78
