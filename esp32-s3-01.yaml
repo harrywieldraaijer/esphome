@@ -218,7 +218,7 @@ binary_sensor:
     on_state:
       then:
         - lvgl.widget.update:
-            id: btn2
+            id: btn3
             state:
               checked: !lambda return x;
     
