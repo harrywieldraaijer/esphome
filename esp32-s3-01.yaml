@@ -218,7 +218,7 @@ binary_sensor:
     on_state:
       then:
         - lvgl.widget.update:
-            id: btn_light_rear_0
+            id: btn2
             state:
               checked: !lambda return x;
 
@@ -1144,7 +1144,7 @@ lvgl:
 
 
         - button:
-            id: btn_light_rear_0
+            id: btn2
             x: 182
             y: 310
             width: 78
@@ -1160,7 +1160,7 @@ lvgl:
             widgets:
               - label:
                   align: CENTER
-                  text: "Light\nReading"
+                  text: "Area 2"
                   text_font: montserrat_12
             on_click:
               - homeassistant.action:
