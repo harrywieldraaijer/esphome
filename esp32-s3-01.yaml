@@ -1087,6 +1087,7 @@ lvgl:
                     entity_id: light.relay_sonoff_01
 
         # ── LIGHT BUTTONS ROW (below main button) ─────────────────────────────
+        # ── All lights off ─────────────────────────────
         - button:
             id: btn_light_garage2_0
             x: 10
