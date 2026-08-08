@@ -157,7 +157,7 @@ touchscreen:
 # Note: main button controls Garage 1 own light (output_0); Garage 2 light is secondary.
 binary_sensor:
   - platform: homeassistant
-    id: light_main
+    id: light_main  # Main light Living Room
     entity_id: light.mawd_250
     trigger_on_initial_state: true
     on_state:
@@ -168,7 +168,7 @@ binary_sensor:
               checked: !lambda return x;
               
   - platform: homeassistant
-    id: light_main_0
+    id: light_main_0 # Main light Kitchen
     entity_id: light.relay_sonoff_01
     trigger_on_initial_state: true
     on_state:
@@ -1162,10 +1162,10 @@ lvgl:
             checkable: true
             radius: 12
             border_width: 0
-            bg_color: 0x1E293B
-            text_color: 0x64748B
+            # bg_color: 0x1E293B
+            # text_color: 0x64748B
             checked:
-              bg_color: 0x92400E
+            #  bg_color: 0x92400E
               text_color: 0xFDE68A
             widgets:
               - label:
