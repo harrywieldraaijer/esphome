@@ -295,11 +295,11 @@ binary_sensor:
               then:
                 - lvgl.button.update:
                     id: btn1
-                    bg_color: 0xFF0000  # // red
+                    bg_color: 0x00FF00   # // green
               else:
                 - lvgl.button.update:
                     id: btn1
-                    bg_color: 0x00FF00  # // green
+                    bg_color: 0xFF0000  # // red
                 
 # ── SENSOR AND COVER STATES FROM HOME ASSISTANT ───────────────────────────────
 text_sensor:
