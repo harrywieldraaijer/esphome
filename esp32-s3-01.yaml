@@ -281,8 +281,7 @@ binary_sensor:
                   id: dimmer_slider
                   value: 0
 
-   # Light 1 state (on/off)
-
+# Light 1 state (on/off)
   - platform: homeassistant
     id: light1_state
     entity_id: light.dimmer_01
@@ -292,6 +291,25 @@ binary_sensor:
           - if:
               condition:
                 binary_sensor.is_off: light1_state
+              then:
+                - lvgl.button.update:
+                    id: btn1
+                    bg_color: 0x00FF00   # // green
+              else:
+                - lvgl.button.update:
+                    id: btn1
+                    bg_color: 0xFF0000  # // red
+
+# Light 2 state (on/off)
+  - platform: homeassistant
+    id: light2_state
+    entity_id: light.dimmer_01
+    internal: true
+    on_state:
+      then:
+          - if:
+              condition:
+                binary_sensor.is_off: light2_state
               then:
                 - lvgl.button.update:
                     id: btn1
