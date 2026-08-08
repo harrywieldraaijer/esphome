@@ -1104,7 +1104,7 @@ lvgl:
             widgets:
               - label:
                   align: CENTER
-                  text: "Light\nSide desk"
+                  text: "All Off"
                   text_font: montserrat_12
             on_click:
               - homeassistant.action:
