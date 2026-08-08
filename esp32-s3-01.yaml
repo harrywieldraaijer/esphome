@@ -334,11 +334,11 @@ binary_sensor:
                 binary_sensor.is_off: light2_state
               then:
                 - lvgl.button.update:
-                    id: btn1
+                    id: btn2
                     bg_color: 0x00FF00   # // green
               else:
                 - lvgl.button.update:
-                    id: btn1
+                    id: btn2
                     bg_color: 0xFF0000  # // red
                 
 # ── SENSOR AND COVER STATES FROM HOME ASSISTANT ───────────────────────────────
