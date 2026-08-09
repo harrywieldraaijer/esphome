@@ -1143,11 +1143,11 @@ lvgl:
                   text_font: montserrat_12
             on_click:
               - homeassistant.action:
-                  action: light.off
+                  action: light.turn_off
                   data:
                     entity_id: light.dimmer_01
               - homeassistant.action:
-                  action: light.togle
+                  action: light.turn_off
                   data:
                     entity_id: light.plug_livingroom_staandelamp
                     
