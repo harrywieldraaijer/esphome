@@ -1147,22 +1147,6 @@ lvgl:
                   data:
                     entity_id: light.plug_livingroom_staandelamp
 
-# Button 1 – toggles light_1
-#        - button:
-#            id: btn1
-#            x: 96
-#            y: 310
-#            width: 78
-#            height: 80
-#            text: "Area 1"
-#            text_font: montserrat_14
-#            bg_color: 0x00FF00   # initial green (off)
-#            on_click:
-#              then:
-#                - homeassistant.service:
-#                    service: light.toggle
-#                    data:
-#                      entity_id: light.dimmer_01
 # Button 1 – toggles button Area 1
         - button:
             id: btn1
