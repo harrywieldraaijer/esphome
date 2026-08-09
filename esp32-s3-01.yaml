@@ -1077,7 +1077,7 @@ lvgl:
                   height: 10
                   radius: 5
                   border_width: 0
-                  bg_color: 0x64748B
+                  bg_color: 0x00FF00
 
         # ── Main Kitchen Light ────────────────────────────
         - button:
