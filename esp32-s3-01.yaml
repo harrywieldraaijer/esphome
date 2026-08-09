@@ -1142,12 +1142,12 @@ lvgl:
                   text: "All Off"
                   text_font: montserrat_12
             on_click:
-              - homeassistant.service:
-                  service: light.off
+              - homeassistant.action:
+                  action: light.toggle
                   data:
                     entity_id: light.dimmer_01
-              - homeassistant.service:
-                  service: light.off
+              - homeassistant.action:
+                  action: light.togle
                   data:
                     entity_id: light.plug_livingroom_staandelamp
                     
