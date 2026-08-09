@@ -1133,9 +1133,9 @@ lvgl:
             border_width: 0
             bg_color: 0x1E293B
             text_color: 0x64748B
-            #checked:
-            #  bg_color: 0x92400E
-            #  text_color: 0xFDE68A
+            checked:
+              bg_color: 0x92400E
+              text_color: 0xFDE68A
             widgets:
               - label:
                   align: CENTER
@@ -1149,7 +1149,11 @@ lvgl:
               - homeassistant.action:
                   action: light.turn_off
                   data:
-                    entity_id: light.plug_livingroom_staandelamp
+                    entity_id: light.0xb40ecfd1a15a0000
+              - homeassistant.action:
+                  action: light.turn_off
+                  data:
+                    entity_id: light.plug_switch_power_02
                     
 # Button 1 – toggles button Area 1
         - button:
