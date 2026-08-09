@@ -243,7 +243,17 @@ binary_sensor:
             id: btn3
             state:
               checked: !lambda return x;
-    
+              
+  - platform: homeassistant
+    id: smoke_detected
+    entity_id: light.plug_switch_power_02
+    trigger_on_initial_state: true
+    on_state:
+      then:
+        - lvgl.widget.update:
+            id: btn3
+            state:
+              checked: !lambda return x;
 
 # ── IRRIGATION STATES FROM HOME ASSISTANT ─────────────────────────────────────
   - platform: homeassistant
