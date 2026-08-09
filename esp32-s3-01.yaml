@@ -1136,23 +1136,48 @@ lvgl:
                     entity_id: light.plug_livingroom_staandelamp
 
 # Button 1 – toggles light_1
+#        - button:
+#            id: btn1
+#            x: 96
+#            y: 310
+#            width: 78
+#            height: 80
+#            text: "Area 1"
+#            text_font: montserrat_14
+#            bg_color: 0x00FF00   # initial green (off)
+#            on_click:
+#              then:
+#                - homeassistant.service:
+#                    service: light.toggle
+#                    data:
+#                      entity_id: light.dimmer_01
+# Button 1 – toggles button Area 1
         - button:
             id: btn1
             x: 96
             y: 310
             width: 78
             height: 80
-            text: "Area 1"
-            text_font: montserrat_14
-            bg_color: 0x00FF00   # initial green (off)
+            checkable: true
+            radius: 12
+            border_width: 0
+            bg_color: 0x1E293B
+            text_color: 0x64748B
+            checked:
+              bg_color: 0x92400E
+              text_color: 0xFDE68A
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "Area 1"
+                  text_font: montserrat_12
             on_click:
-              then:
-                - homeassistant.service:
-                    service: light.toggle
-                    data:
-                      entity_id: light.dimmer_01
+              - homeassistant.action:
+                  action: light.toggle
+                  data:
+                    entity_id: light.dimmer_01
 
-
+# Button 2 – toggles button Area 2
         - button:
             id: btn2
             x: 182
@@ -1162,10 +1187,10 @@ lvgl:
             checkable: true
             radius: 12
             border_width: 0
-            # bg_color: 0x1E293B
-            # text_color: 0x64748B
+            bg_color: 0x1E293B
+            text_color: 0x64748B
             checked:
-            #  bg_color: 0x92400E
+              bg_color: 0x92400E
               text_color: 0xFDE68A
             widgets:
               - label:
@@ -1178,7 +1203,7 @@ lvgl:
                   data:
                     entity_id: light.0xb40ecfd1a15a0000
                    
- 
+ # Button 3 – toggles button Area 3
         - button:
             id: btn3
             x: 268
