@@ -1080,7 +1080,7 @@ lvgl:
  #                 bg_color: 0x00FF00
         - button:
                   id: leakage_indicator
-                  x: 200
+                  x: 300
                   y: 48
                   width: 10
                   height: 10
