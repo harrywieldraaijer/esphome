@@ -212,16 +212,16 @@ binary_sensor:
               checked: !lambda return x;
               
   - platform: homeassistant
-    id: light_rear_0
-    entity_id: light.plug_switch_power_02
+    id: light_area_1
+    entity_id: light.dimmer_01
     trigger_on_initial_state: true
     on_state:
       then:
         - lvgl.widget.update:
-            id: btn3
+            id: btn1
             state:
               checked: !lambda return x;
-    
+              
   - platform: homeassistant
     id: light_rear_01
     entity_id: light.0xb40ecfd1a15a0000
@@ -232,7 +232,19 @@ binary_sensor:
             id: btn2
             state:
               checked: !lambda return x;
-              
+                          
+  - platform: homeassistant
+    id: light_rear_0
+    entity_id: light.plug_switch_power_02
+    trigger_on_initial_state: true
+    on_state:
+      then:
+        - lvgl.widget.update:
+            id: btn3
+            state:
+              checked: !lambda return x;
+    
+
 # ── IRRIGATION STATES FROM HOME ASSISTANT ─────────────────────────────────────
   - platform: homeassistant
     id: irr_h1
@@ -304,23 +316,23 @@ binary_sensor:
                   value: 0
 
 # Light 1 state (on/off)
-  - platform: homeassistant
-    id: light1_state
-    entity_id: light.dimmer_01
-    internal: true
-    on_state:
-      then:
-          - if:
-              condition:
-                binary_sensor.is_off: light1_state
-              then:
-                - lvgl.button.update:
-                    id: btn1
-                    bg_color: 0x00FF00   # // green
-              else:
-                - lvgl.button.update:
-                    id: btn1
-                    bg_color: 0xFF0000  # // red
+#  - platform: homeassistant
+#    id: light1_state
+#    entity_id: light.dimmer_01
+#    internal: true
+#   on_state:
+#      then:
+#          - if:
+#              condition:
+#                binary_sensor.is_off: light1_state
+#              then:
+#                - lvgl.button.update:
+#                    id: btn1
+#                    bg_color: 0x00FF00   # // green
+#              else:
+#                - lvgl.button.update:
+#                    id: btn1
+#                    bg_color: 0xFF0000  # // red
 
 # Light 2 state (on/off)
 #  - platform: homeassistant
