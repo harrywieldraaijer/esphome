@@ -1080,8 +1080,8 @@ lvgl:
  #                 bg_color: 0x00FF00
         - button:
                   id: smoke_indicator
-                  x: 300
-                  y: 18
+                  x: 320
+                  y: 36
                   width: 10
                   height: 10
                   radius: 5
