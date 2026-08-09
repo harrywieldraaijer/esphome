@@ -1123,7 +1123,7 @@ lvgl:
         # ── LIGHT BUTTONS ROW (below main button) ─────────────────────────────
         # ── All lights off ─────────────────────────────
         - button:
-            id: btn_light_garage2_0
+            id: btn_0
             x: 10
             y: 310
             width: 78
@@ -1143,10 +1143,14 @@ lvgl:
                   text_font: montserrat_12
             on_click:
               - homeassistant.action:
-                  action: light.toggle
+                  action: light.off
+                  data:
+                    entity_id: light.dimmer_01
+              - homeassistant.action:
+                  action: light.off
                   data:
                     entity_id: light.plug_livingroom_staandelamp
-
+                    
 # Button 1 – toggles button Area 1
         - button:
             id: btn1
