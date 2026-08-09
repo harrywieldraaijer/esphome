@@ -246,7 +246,7 @@ binary_sensor:
               
   - platform: homeassistant
     id: smoke_detected
-    entity_id: light.plug_switch_power_02
+    entity_id: binary_sensor.0x54ef441000d9ae95_smoke
     trigger_on_initial_state: true
     on_state:
       then:
