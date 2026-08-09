@@ -1128,14 +1128,14 @@ lvgl:
             y: 310
             width: 78
             height: 80
-            checkable: true
+            # checkable: true
             radius: 12
             border_width: 0
             bg_color: 0x1E293B
             text_color: 0x64748B
-            checked:
-              bg_color: 0x92400E
-              text_color: 0xFDE68A
+            #checked:
+            #  bg_color: 0x92400E
+            #  text_color: 0xFDE68A
             widgets:
               - label:
                   align: CENTER
