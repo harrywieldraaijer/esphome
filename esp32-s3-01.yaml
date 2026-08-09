@@ -1143,7 +1143,7 @@ lvgl:
                   text_font: montserrat_12
             on_click:
               - homeassistant.action:
-                  action: light.toggle
+                  action: light.off
                   data:
                     entity_id: light.dimmer_01
               - homeassistant.action:
