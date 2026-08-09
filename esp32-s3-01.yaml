@@ -1069,8 +1069,17 @@ lvgl:
                   text: "Smoke"
                   text_font: montserrat_12
                   text_color: 0x64748B
-              - label:
-                  # id: smoke_indicator
+ #             - label:
+ #                 # id: smoke_indicator
+ #                 x: 300
+ #                 y: 18
+ #                 width: 10
+ #                 height: 10
+ #                 radius: 5
+ #                 border_width: 0
+ #                 bg_color: 0x00FF00
+        - button:
+                  id: smoke_indicator
                   x: 300
                   y: 18
                   width: 10
@@ -1078,7 +1087,7 @@ lvgl:
                   radius: 5
                   border_width: 0
                   bg_color: 0x00FF00
-
+                  
         # ── Main Kitchen Light ────────────────────────────
         - button:
             id: btn_mainlight_0
