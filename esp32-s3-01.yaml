@@ -733,7 +733,7 @@ lvgl:
                     else:
                        - if:
                           condition:
-                            lambda: 'return id(dimmer_slider).state == "on";'
+                            lambda: 'return id(btn1).state == "on";'
                           then:
                             - homeassistant.action:
                                 action: light.turn_on
