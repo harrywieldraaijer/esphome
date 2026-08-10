@@ -459,6 +459,309 @@ lvgl:
         - lvgl.page.next:
 
       widgets:
+        
+# ── TEMPERATURE + TIME DISPLAY  ──────────────────
+        - obj:
+            x: 10
+            y: 10
+            width: 360
+            height: 85
+            bg_color: 0x1E293B
+            bg_opa: COVER
+            radius: 14
+            border_width: 0
+            pad_all: 10
+            widgets:
+              # Left column: outdoor temperature
+              - label:
+                  x: 0
+                  y: 0
+                  text: "Kitchen"
+                  text_font: montserrat_12
+                  text_color: 0x64748B
+              - label:
+                  id: temp_outdoor_label_0
+                  x: 0
+                  y: 18
+                  text: "..."
+                  text_font: montserrat_24
+                  text_color: 0xE2E8F0
+              # Second column: time
+              - label:
+                  x: 120
+                  y: 0
+                  text: "Time"
+                  text_font: montserrat_12
+                  text_color: 0x64748B
+              - label:
+                  id: time_label_0
+                  x: 120
+                  y: 18
+                  text: "--:--"
+                  text_font: montserrat_24
+                  text_color: 0xE2E8F0
+              # Thirth column: leakage
+              - label:
+                  x: 200
+                  y: 0
+                  text: "Leakage"
+                  text_font: montserrat_12
+                  text_color: 0x64748B
+              - label:
+                  x: 300
+                  y: 0
+                  text: "Smoke"
+                  text_font: montserrat_12
+                  text_color: 0x64748B
+ 
+        - button:
+            id: leakage_indicator
+            x: 240
+            y: 48
+            width: 10
+            height: 10
+            checkable: true
+            radius: 5
+            border_width: 0
+            bg_color: 0x00FF00
+            checked:
+              bg_color: 0xFF0000
+        - button:
+            id: smoke_indicator
+            x: 335
+            y: 48
+            width: 10
+            height: 10
+            checkable: true
+            radius: 5
+            border_width: 0
+            bg_color: 0x00FF00
+            checked:
+              bg_color: 0xFF0000
+                
+        # ── Main Kitchen Light ────────────────────────────
+        - button:
+            id: btn_mainlight_0
+            x: 10
+            y: 110
+            width: 175
+            height: 175
+            checkable: true
+            radius: 18
+            border_width: 0
+            bg_color: 0x1E3A5F
+            checked:
+              bg_color: 0x1D4ED8
+            pressed:
+              bg_color: 0x172F4A
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "Main Light"
+                  text_font: montserrat_20
+                  text_color: 0xE2E8F0
+            on_click:
+              - homeassistant.action:
+                  action: light.toggle
+                  data:
+                    entity_id: light.relay_sonoff_01
+ 
+        # ── Sink Light ────────────────────────────
+        - button:
+            id: btn_mainlight_1
+            x: 195
+            y: 110
+            width: 175
+            height: 175
+            checkable: true
+            radius: 18
+            border_width: 0
+            bg_color: 0x1E3A5F
+            checked:
+              bg_color: 0x1D4ED8
+            pressed:
+              bg_color: 0x172F4A
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "Sink Light"
+                  text_font: montserrat_20
+                  text_color: 0xE2E8F0
+            on_click:
+              - homeassistant.action:
+                  action: light.toggle
+                  data:
+                    entity_id: light.relay_sonoff_01
+
+        # ── LIGHT BUTTONS ROW (below main button) ─────────────────────────────
+        # ── All lights off ─────────────────────────────
+        - button:
+            id: btn_0
+            x: 10
+            y: 310
+            width: 78
+            height: 80
+            # checkable: true
+            radius: 12
+            border_width: 0
+            bg_color: 0x1E293B
+            text_color: 0x64748B
+            checked:
+              bg_color: 0x92400E
+              text_color: 0xFDE68A
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "All Off"
+                  text_font: montserrat_12
+            on_click:
+              - homeassistant.action:
+                  action: light.turn_off
+                  data:
+                    entity_id: light.dimmer_01
+              - homeassistant.action:
+                  action: light.turn_off
+                  data:
+                    entity_id: light.0xb40ecfd1a15a0000
+              - homeassistant.action:
+                  action: light.turn_off
+                  data:
+                    entity_id: light.plug_switch_power_02
+                    
+# Button 1 – toggles button Area 1
+        - button:
+            id: btn1
+            x: 96
+            y: 310
+            width: 78
+            height: 80
+            checkable: true
+            radius: 12
+            border_width: 0
+            bg_color: 0x1E293B
+            text_color: 0x64748B
+            checked:
+              bg_color: 0x92400E
+              text_color: 0xFDE68A
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "Area 1"
+                  text_font: montserrat_12
+            on_click:
+              - homeassistant.action:
+                  action: light.toggle
+                  data:
+                    entity_id: light.dimmer_01
+
+# Button 2 – toggles button Area 2
+        - button:
+            id: btn2
+            x: 182
+            y: 310
+            width: 78
+            height: 80
+            checkable: true
+            radius: 12
+            border_width: 0
+            bg_color: 0x1E293B
+            text_color: 0x64748B
+            checked:
+              bg_color: 0x92400E
+              text_color: 0xFDE68A
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "Area 2"
+                  text_font: montserrat_12
+            on_click:
+              - homeassistant.action:
+                  action: light.toggle
+                  data:
+                    entity_id: light.0xb40ecfd1a15a0000
+                   
+ # Button 3 – toggles button Area 3
+        - button:
+            id: btn3
+            x: 268
+            y: 310
+            width: 78
+            height: 80
+            checkable: true
+            radius: 12
+            border_width: 0
+            bg_color: 0x1E293B
+            text_color: 0x64748B
+            checked:
+              bg_color: 0x92400E
+              text_color: 0xFDE68A
+            widgets:
+              - label:
+                  align: CENTER
+                  text: "Light\nReading"
+                  text_font: montserrat_12
+            on_click:
+              - homeassistant.action:
+                  action: light.toggle
+                  data:
+                    entity_id: light.plug_switch_power_02
+                   
+        - slider:
+            id: dimmer_slider
+            x: 20
+            y: 430
+            width: 360
+            min_value: 0
+            max_value: 100
+
+            on_release:
+              then:
+                - if:
+                    condition:
+                      lambda: 'return x < 5;'
+                    then:
+                      - homeassistant.action:
+                          action: light.turn_off
+                          data:
+                            entity_id: light.dimmer_01
+                    else:
+                      - homeassistant.action:
+                          action: light.turn_on
+                          data:
+                            entity_id: light.dimmer_01
+                            brightness: !lambda |-
+                              return (int)(x * 255 / 100);
+
+        # ── PAGE INDICATOR DOTS ───────────────────────────────────────────────
+        - obj:
+            x: 233
+            y: 462
+            width: 10
+            height: 10
+            radius: 5
+            border_width: 0
+            bg_color: 0x64748B
+        - obj:
+            x: 249
+            y: 462
+            width: 10
+            height: 10
+            radius: 5
+            border_width: 0
+            bg_color: 0x334155
+
+    # ── PAGE 2: BEWÄSSERUNG ───────────────────────────────────────────────────
+    - id: original_main_page
+      bg_color: 0x0F172A
+      bg_opa: COVER
+      on_swipe_right:
+        - lambda: 'lv_indev_wait_release(lv_indev_get_act());'
+        - lvgl.page.previous:
+      on_swipe_left:
+        - lambda: 'lv_indev_wait_release(lv_indev_get_act());'
+        - lvgl.page.next:
+
+      widgets:
 
         # ── MAIN LIGHT BUTTON (top-left, large) ───────────────────────────────
         - button:
@@ -790,7 +1093,7 @@ lvgl:
             height: 10
             radius: 5
             border_width: 0
-            bg_color: 0x64748B
+            bg_color: 0x334155
         - obj:
             x: 249
             y: 462
@@ -798,19 +1101,16 @@ lvgl:
             height: 10
             radius: 5
             border_width: 0
-            bg_color: 0x334155
+            bg_color: 0x64748B
 
-    # ── PAGE 2: BEWÄSSERUNG ───────────────────────────────────────────────────
-    - id: irrigation_page
+            # ── PAGE 3: Test Harry ───────────────────────────────────────────────────
+            
+    - id: original_second_page
       bg_color: 0x0F172A
       bg_opa: COVER
       on_swipe_right:
         - lambda: 'lv_indev_wait_release(lv_indev_get_act());'
         - lvgl.page.previous:
-      on_swipe_left:
-        - lambda: 'lv_indev_wait_release(lv_indev_get_act());'
-        - lvgl.page.next:
-
       widgets:
 
         # ── WASSERSTECKDOSE (full-width, prominent) ────────────────────────────
@@ -951,310 +1251,7 @@ lvgl:
               - homeassistant.action:
                   action: input_boolean.toggle
                   data:
-                    entity_id: input_boolean.bewasserung_kreis_a2
-
-        # ── PAGE INDICATOR DOTS ───────────────────────────────────────────────
-        - obj:
-            x: 233
-            y: 462
-            width: 10
-            height: 10
-            radius: 5
-            border_width: 0
-            bg_color: 0x334155
-        - obj:
-            x: 249
-            y: 462
-            width: 10
-            height: 10
-            radius: 5
-            border_width: 0
-            bg_color: 0x64748B
-
-            # ── PAGE 3: Test Harry ───────────────────────────────────────────────────
-            
-    - id: Main_Page_Kitchen
-      bg_color: 0x0F172A
-      bg_opa: COVER
-      on_swipe_right:
-        - lambda: 'lv_indev_wait_release(lv_indev_get_act());'
-        - lvgl.page.previous:
-#BEGIN ORG BLOCk 3      
-      widgets:
-        
-# ── TEMPERATURE + TIME DISPLAY  ──────────────────
-        - obj:
-            x: 10
-            y: 10
-            width: 360
-            height: 85
-            bg_color: 0x1E293B
-            bg_opa: COVER
-            radius: 14
-            border_width: 0
-            pad_all: 10
-            widgets:
-              # Left column: outdoor temperature
-              - label:
-                  x: 0
-                  y: 0
-                  text: "Kitchen"
-                  text_font: montserrat_12
-                  text_color: 0x64748B
-              - label:
-                  id: temp_outdoor_label_0
-                  x: 0
-                  y: 18
-                  text: "..."
-                  text_font: montserrat_24
-                  text_color: 0xE2E8F0
-              # Second column: time
-              - label:
-                  x: 120
-                  y: 0
-                  text: "Time"
-                  text_font: montserrat_12
-                  text_color: 0x64748B
-              - label:
-                  id: time_label_0
-                  x: 120
-                  y: 18
-                  text: "--:--"
-                  text_font: montserrat_24
-                  text_color: 0xE2E8F0
-              # Thirth column: leakage
-              - label:
-                  x: 200
-                  y: 0
-                  text: "Leakage"
-                  text_font: montserrat_12
-                  text_color: 0x64748B
-              - label:
-                  x: 300
-                  y: 0
-                  text: "Smoke"
-                  text_font: montserrat_12
-                  text_color: 0x64748B
- 
-        - button:
-            id: leakage_indicator
-            x: 240
-            y: 48
-            width: 10
-            height: 10
-            checkable: true
-            radius: 5
-            border_width: 0
-            bg_color: 0x00FF00
-            checked:
-              bg_color: 0xFF0000
-        - button:
-            id: smoke_indicator
-            x: 335
-            y: 48
-            width: 10
-            height: 10
-            checkable: true
-            radius: 5
-            border_width: 0
-            bg_color: 0x00FF00
-            checked:
-              bg_color: 0xFF0000
-                
-        # ── Main Kitchen Light ────────────────────────────
-        - button:
-            id: btn_mainlight_0
-            x: 10
-            y: 110
-            width: 175
-            height: 175
-            checkable: true
-            radius: 18
-            border_width: 0
-            bg_color: 0x1E3A5F
-            checked:
-              bg_color: 0x1D4ED8
-            pressed:
-              bg_color: 0x172F4A
-            widgets:
-              - label:
-                  align: CENTER
-                  text: "Main Light"
-                  text_font: montserrat_20
-                  text_color: 0xE2E8F0
-            on_click:
-              - homeassistant.action:
-                  action: light.toggle
-                  data:
-                    entity_id: light.relay_sonoff_01
- 
-        # ── Sink Light ────────────────────────────
-        - button:
-            id: btn_mainlight_1
-            x: 195
-            y: 110
-            width: 175
-            height: 175
-            checkable: true
-            radius: 18
-            border_width: 0
-            bg_color: 0x1E3A5F
-            checked:
-              bg_color: 0x1D4ED8
-            pressed:
-              bg_color: 0x172F4A
-            widgets:
-              - label:
-                  align: CENTER
-                  text: "Sink Light"
-                  text_font: montserrat_20
-                  text_color: 0xE2E8F0
-            on_click:
-              - homeassistant.action:
-                  action: light.toggle
-                  data:
-                    entity_id: light.relay_sonoff_01
-
-        # ── LIGHT BUTTONS ROW (below main button) ─────────────────────────────
-        # ── All lights off ─────────────────────────────
-        - button:
-            id: btn_0
-            x: 10
-            y: 310
-            width: 78
-            height: 80
-            # checkable: true
-            radius: 12
-            border_width: 0
-            bg_color: 0x1E293B
-            text_color: 0x64748B
-            checked:
-              bg_color: 0x92400E
-              text_color: 0xFDE68A
-            widgets:
-              - label:
-                  align: CENTER
-                  text: "All Off"
-                  text_font: montserrat_12
-            on_click:
-              - homeassistant.action:
-                  action: light.turn_off
-                  data:
-                    entity_id: light.dimmer_01
-              - homeassistant.action:
-                  action: light.turn_off
-                  data:
-                    entity_id: light.0xb40ecfd1a15a0000
-              - homeassistant.action:
-                  action: light.turn_off
-                  data:
-                    entity_id: light.plug_switch_power_02
-                    
-# Button 1 – toggles button Area 1
-        - button:
-            id: btn1
-            x: 96
-            y: 310
-            width: 78
-            height: 80
-            checkable: true
-            radius: 12
-            border_width: 0
-            bg_color: 0x1E293B
-            text_color: 0x64748B
-            checked:
-              bg_color: 0x92400E
-              text_color: 0xFDE68A
-            widgets:
-              - label:
-                  align: CENTER
-                  text: "Area 1"
-                  text_font: montserrat_12
-            on_click:
-              - homeassistant.action:
-                  action: light.toggle
-                  data:
-                    entity_id: light.dimmer_01
-
-# Button 2 – toggles button Area 2
-        - button:
-            id: btn2
-            x: 182
-            y: 310
-            width: 78
-            height: 80
-            checkable: true
-            radius: 12
-            border_width: 0
-            bg_color: 0x1E293B
-            text_color: 0x64748B
-            checked:
-              bg_color: 0x92400E
-              text_color: 0xFDE68A
-            widgets:
-              - label:
-                  align: CENTER
-                  text: "Area 2"
-                  text_font: montserrat_12
-            on_click:
-              - homeassistant.action:
-                  action: light.toggle
-                  data:
-                    entity_id: light.0xb40ecfd1a15a0000
-                   
- # Button 3 – toggles button Area 3
-        - button:
-            id: btn3
-            x: 268
-            y: 310
-            width: 78
-            height: 80
-            checkable: true
-            radius: 12
-            border_width: 0
-            bg_color: 0x1E293B
-            text_color: 0x64748B
-            checked:
-              bg_color: 0x92400E
-              text_color: 0xFDE68A
-            widgets:
-              - label:
-                  align: CENTER
-                  text: "Light\nReading"
-                  text_font: montserrat_12
-            on_click:
-              - homeassistant.action:
-                  action: light.toggle
-                  data:
-                    entity_id: light.plug_switch_power_02
-                   
-        - slider:
-            id: dimmer_slider
-            x: 20
-            y: 430
-            width: 360
-            min_value: 0
-            max_value: 100
-
-            on_release:
-              then:
-                - if:
-                    condition:
-                      lambda: 'return x < 5;'
-                    then:
-                      - homeassistant.action:
-                          action: light.turn_off
-                          data:
-                            entity_id: light.dimmer_01
-                    else:
-                      - homeassistant.action:
-                          action: light.turn_on
-                          data:
-                            entity_id: light.dimmer_01
-                            brightness: !lambda |-
-                              return (int)(x * 255 / 100);
-# END ORG BLOCK 3
-                    
+                    entity_id: input_boolean.bewasserung_kreis_a2               
         # ── PAGE INDICATOR DOTS ───────────────────────────────────────────────
         - obj:
             x: 233
