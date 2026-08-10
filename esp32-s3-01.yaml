@@ -736,10 +736,10 @@ lvgl:
                             entity_id: light.0xb40ecfd1a15a0000
                       # Repeat for area 3
                     else:
-                       - if:
-                          condition:
-                            lambda: 'return id(light1_state).state == "on";'
-                          then:
+ #                      - if:
+ #                         condition:
+ #                           lambda: 'return id(light1_state).state == "on";'
+ #                         then:
                             - homeassistant.action:
                                 action: light.turn_on
                                 data:
