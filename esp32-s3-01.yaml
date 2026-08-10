@@ -221,6 +221,17 @@ binary_sensor:
             id: btn1
             state:
               checked: !lambda return x;
+  
+  - platform: homeassistant
+    id: light_area_2
+    entity_id: light.0xb40ecfd1a15a0000
+    trigger_on_initial_state: true
+    on_state:
+      then:
+        - lvgl.widget.update:
+            id: btn2
+            state:
+              checked: !lambda return x; 
               
   - platform: homeassistant
     id: light_rear_01
@@ -744,6 +755,16 @@ lvgl:
                                   action: light.turn_on
                                   data:
                                     entity_id: light.dimmer_01
+                                    brightness: !lambda |-
+                                      return (int)(x * 255 / 100);
+                       - if:
+                          condition:
+                             binary_sensor.is_on: light_area_1
+                          then:
+                              - homeassistant.action:
+                                  action: light.turn_on
+                                  data:
+                                    entity_id: light.0xb40ecfd1a15a0000
                                     brightness: !lambda |-
                                       return (int)(x * 255 / 100);
 
