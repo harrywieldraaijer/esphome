@@ -725,13 +725,22 @@ lvgl:
                           action: light.turn_off
                           data:
                             entity_id: light.dimmer_01
-                    else:
                       - homeassistant.action:
-                          action: light.turn_on
+                          action: light.turn_off
                           data:
-                            entity_id: light.dimmer_01
-                            brightness: !lambda |-
-                              return (int)(x * 255 / 100);
+                            entity_id: light.0xb40ecfd1a15a0000
+                      # Repeat for area 3
+                    else:
+                       - if:
+                          condition:
+                            lambda: 'return id(dimmer_slider).state == "on";'
+                          then:
+                            - homeassistant.action:
+                                action: light.turn_on
+                                data:
+                                  entity_id: light.dimmer_01
+                                  brightness: !lambda |-
+                                    return (int)(x * 255 / 100);
 
         # ── PAGE INDICATOR DOTS ───────────────────────────────────────────────
         - obj:
