@@ -246,7 +246,7 @@ binary_sensor:
 
   - platform: homeassistant
     id: leakage_detected
-    entity_id: binary_sensor.0x54ef441000d9ae95_smoke
+    entity_id: binary_sensor.klippbok_water_leak_sensor_water_lekkage
     trigger_on_initial_state: true
     on_state:
       then:
