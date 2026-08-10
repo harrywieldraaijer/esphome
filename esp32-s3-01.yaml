@@ -397,6 +397,7 @@ text_sensor:
 
 sensor:
 # Brightness of light_1 (used to sync the slider)
+
   - platform: homeassistant
     id: ha_brightness
     entity_id: light.dimmer_01
@@ -404,30 +405,14 @@ sensor:
     internal: true
     on_value:
       then:
-        - lvgl.slider.update:
-            id: dimmer_slider
-            value: !lambda |-
-              if (id(ha_brightness).has_state()) {
-                return (int)id(ha_brightness).state;
-              }
-              return (int)id(dimmer_slider).state;   // fallback
-
-
-#  - platform: homeassistant
-#    id: ha_brightness
-#    entity_id: light.dimmer_01
-#    attribute: brightness
-#    internal: true
-#    on_value:
-#      then:
-#        - if:
-#            condition:
-#              lambda: 'return !isnan(x);'
-#           then:
-#              - lvgl.slider.update:
-#                  id: dimmer_slider
-#                  value: !lambda |-
-#                    return (int)((x / 255.0) * 100);
+        - if:
+            condition:
+              lambda: 'return !isnan(x);'
+            then:
+              - lvgl.slider.update:
+                  id: dimmer_slider
+                  value: !lambda |-
+                    return (int)((x / 255.0) * 100);
 
 # ── LVGL UI ───────────────────────────────────────────────────────────────────
 #
