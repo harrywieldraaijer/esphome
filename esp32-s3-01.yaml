@@ -215,12 +215,12 @@ binary_sensor:
     id: light_area_1
     entity_id: light.dimmer_01
     trigger_on_initial_state: true
- #   on_state:
- #     then:
- #       - lvgl.widget.update:
- #           id: btn1
- #           state:
- #             checked: !lambda return x;
+    on_state:
+      then:
+        - lvgl.widget.update:
+            id: btn1
+            state:
+              checked: !lambda return x;
               
   - platform: homeassistant
     id: light_rear_01
