@@ -243,6 +243,17 @@ binary_sensor:
             id: btn3
             state:
               checked: !lambda return x;
+
+  - platform: homeassistant
+    id: leakage_detected
+    entity_id: binary_sensor.0x54ef441000d9ae95_smoke
+    trigger_on_initial_state: true
+    on_state:
+      then:
+        - lvgl.widget.update:
+            id: leakage_indicator
+            state:
+              checked: !lambda return x;
               
   - platform: homeassistant
     id: smoke_detected
@@ -1026,24 +1037,30 @@ lvgl:
                   text_color: 0x64748B
  
         - button:
-                  id: leakage_indicator
-                  x: 240
-                  y: 48
-                  width: 10
-                  height: 10
-                  radius: 5
-                  border_width: 0
-                  bg_color: 0x00FF00
+            id: leakage_indicator
+            x: 240
+            y: 48
+            width: 10
+            height: 10
+            checkable: true
+            radius: 5
+            border_width: 0
+            bg_color: 0x00FF00
+            checked:
+              bg_color: 0xFF0000
         - button:
-                  id: smoke_indicator
-                  x: 335
-                  y: 48
-                  width: 10
-                  height: 10
-                  radius: 5
-                  border_width: 0
-                  bg_color: 0x00FF00
-                  
+            id: smoke_indicator
+            x: 335
+            y: 48
+            width: 10
+            height: 10
+            checkable: true
+            radius: 5
+            border_width: 0
+            bg_color: 0x00FF00
+            checked:
+              bg_color: 0xFF0000
+                
         # ── Main Kitchen Light ────────────────────────────
         - button:
             id: btn_mainlight_0
