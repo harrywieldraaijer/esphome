@@ -251,7 +251,7 @@ binary_sensor:
     on_state:
       then:
         - lvgl.widget.update:
-            id: btn3
+            id: smoke_indicator
             state:
               checked: !lambda return x;
 
