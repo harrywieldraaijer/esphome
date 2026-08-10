@@ -397,6 +397,11 @@ text_sensor:
 
 sensor:
 # Brightness of light_1 (used to sync the slider)
+ # Light 1 state (on/off)
+  - platform: homeassistant
+    id: light1_state
+    entity_id: light.dimmer_01
+    internal: true
 
   - platform: homeassistant
     id: ha_brightness
@@ -733,7 +738,7 @@ lvgl:
                     else:
                        - if:
                           condition:
-                            lambda: 'return id(btn1).state == "on";'
+                            lambda: 'return id(light1_state).state == "on";'
                           then:
                             - homeassistant.action:
                                 action: light.turn_on
