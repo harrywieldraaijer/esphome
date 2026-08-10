@@ -759,7 +759,7 @@ lvgl:
                                       return (int)(x * 255 / 100);
                        - if:
                           condition:
-                             binary_sensor.is_on: light_area_1
+                             binary_sensor.is_on: light_area_2
                           then:
                               - homeassistant.action:
                                   action: light.turn_on
