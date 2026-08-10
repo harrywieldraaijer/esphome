@@ -979,7 +979,7 @@ lvgl:
       on_swipe_right:
         - lambda: 'lv_indev_wait_release(lv_indev_get_act());'
         - lvgl.page.previous:
-      
+#BEGIN ORG BLOCk 3      
       widgets:
         
 # ── TEMPERATURE + TIME DISPLAY  ──────────────────
@@ -1253,7 +1253,7 @@ lvgl:
                             entity_id: light.dimmer_01
                             brightness: !lambda |-
                               return (int)(x * 255 / 100);
-
+# END ORG BLOCK 3
                     
         # ── PAGE INDICATOR DOTS ───────────────────────────────────────────────
         - obj:
