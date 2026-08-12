@@ -334,18 +334,18 @@ binary_sensor:
               checked: !lambda return x;
               
 # Set slider to zero when it is switched off by home assistant:
-  - platform: homeassistant
-    id: light_state
-    entity_id: light.dimmer_01
-    on_state:
-      then:
-        - if:
-            condition:
-              binary_sensor.is_off: light_state
-            then:
-              - lvgl.slider.update:
-                  id: dimmer_slider
-                  value: 0
+#  - platform: homeassistant
+#    id: light_state
+#    entity_id: light.dimmer_01
+#    on_state:
+#      then:
+#        - if:
+#            condition:
+#              binary_sensor.is_off: light_state
+#            then:
+#              - lvgl.slider.update:
+#                  id: dimmer_slider
+#                  value: 0
 
                 
 # ── SENSOR AND COVER STATES FROM HOME ASSISTANT ───────────────────────────────
