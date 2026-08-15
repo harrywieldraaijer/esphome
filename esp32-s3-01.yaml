@@ -168,13 +168,13 @@ binary_sensor:
               checked: !lambda return x;
               
   - platform: homeassistant
-    id: light_main_0 # Main light Kitchen
+    id: light_mainlight_kitchen # Main light Kitchen
     entity_id: light.relay_sonoff_01
     trigger_on_initial_state: true
     on_state:
       then:
         - lvgl.widget.update:
-            id: btn_mainlight_0
+            id: btn_mainlight_kitchen
             state:
               checked: !lambda return x;
 
@@ -218,7 +218,7 @@ binary_sensor:
     on_state:
       then:
         - lvgl.widget.update:
-            id: btn1
+            id: btn_light_area1
             state:
               checked: !lambda return x;
   
@@ -229,31 +229,31 @@ binary_sensor:
     on_state:
       then:
         - lvgl.widget.update:
-            id: btn2
+            id: btn_light_area2
             state:
               checked: !lambda return x; 
               
   - platform: homeassistant
-    id: light_rear_01
+    id: light_area_3
     entity_id: light.0xb40ecfd1a15a0000
     trigger_on_initial_state: true
     on_state:
       then:
         - lvgl.widget.update:
-            id: btn2
+            id: btn_light_area3
             state:
               checked: !lambda return x;
                           
-  - platform: homeassistant
-    id: light_rear_0
-    entity_id: light.plug_switch_power_02
-    trigger_on_initial_state: true
-    on_state:
-      then:
-        - lvgl.widget.update:
-            id: btn3
-            state:
-              checked: !lambda return x;
+#  - platform: homeassistant
+#    id: light_rear_0
+#    entity_id: light.plug_switch_power_02
+#    trigger_on_initial_state: true
+#    on_state:
+#      then:
+#        - lvgl.widget.update:
+#            id: btn_light_area3
+#            state:
+#              checked: !lambda return x;
 
   - platform: homeassistant
     id: leakage_detected
@@ -359,12 +359,12 @@ text_sensor:
             id: temp_outdoor_label
             text: !lambda return x + " °C";
   - platform: homeassistant
-    id: temp_outdoor_0
+    id: temp_kitchen
     entity_id: sensor.alpstuga_air_quality_monitor_temperatuur
     on_value:
       then:
         - lvgl.label.update:
-            id: temp_outdoor_label_0
+            id: label_temp_kitchen
             text: !lambda return x + " °C";
   - platform: homeassistant
     id: cover_garage1_state
@@ -432,7 +432,7 @@ sensor:
 
 # ── LVGL UI ───────────────────────────────────────────────────────────────────
 #
-#  Page 1 layout (480×480):
+#  Page 2 layout (480×480):
 #
 #  ┌──────────────────────────┬──────────────────────┐
 #  │                          │  Garage 1            │
@@ -446,7 +446,7 @@ sensor:
 #  │                          │  [Zu]                │
 #  └──────────────────────────┴──────────────────────┘
 #
-#  Page 2 layout (480×480):
+#  Page 3 layout (480×480):
 #
 #  ┌────────────────────────────────────────────┐  y=10
 #  │  Wassersteckdose       (full-width, h=110) │
@@ -497,7 +497,7 @@ lvgl:
                   text_font: montserrat_12
                   text_color: 0x64748B
               - label:
-                  id: temp_outdoor_label_0
+                  id: label_temp_kitchen
                   x: 0
                   y: 18
                   text: "..."
@@ -558,7 +558,7 @@ lvgl:
                 
         # ── Main Kitchen Light ────────────────────────────
         - button:
-            id: btn_mainlight_0
+            id: btn_mainlight_kitchen
             x: 10
             y: 110
             width: 175
@@ -585,7 +585,7 @@ lvgl:
  
         # ── Sink Light ────────────────────────────
         - button:
-            id: btn_mainlight_1
+            id: btn_sinklight
             x: 195
             y: 110
             width: 175
@@ -613,7 +613,7 @@ lvgl:
         # ── LIGHT BUTTONS ROW (below main button) ─────────────────────────────
         # ── All lights off ─────────────────────────────
         - button:
-            id: btn_0
+            id: btn_all_off
             x: 10
             y: 310
             width: 78
@@ -647,7 +647,7 @@ lvgl:
                     
 # Button 1 – toggles button Area 1
         - button:
-            id: btn1
+            id: btn_light_area1
             x: 96
             y: 310
             width: 78
@@ -673,7 +673,7 @@ lvgl:
 
 # Button 2 – toggles button Area 2
         - button:
-            id: btn2
+            id: btn_light_area2
             x: 182
             y: 310
             width: 78
@@ -699,7 +699,7 @@ lvgl:
                    
  # Button 3 – toggles button Area 3
         - button:
-            id: btn3
+            id: btn_light_area3
             x: 268
             y: 310
             width: 78
@@ -785,7 +785,15 @@ lvgl:
             radius: 5
             border_width: 0
             bg_color: 0x334155
-
+        - obj:
+            x: 265
+            y: 462
+            width: 10
+            height: 10
+            radius: 5
+            border_width: 0
+            bg_color: 0x334155
+            
     # ── PAGE 2: BEWÄSSERUNG ───────────────────────────────────────────────────
     - id: original_main_page
       bg_color: 0x0F172A
