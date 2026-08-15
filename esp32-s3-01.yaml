@@ -235,7 +235,7 @@ binary_sensor:
               
   - platform: homeassistant
     id: light_area_3
-    entity_id: light.0xb40ecfd1a15a0000
+    entity_id: light.plug_switch_power_02
     trigger_on_initial_state: true
     on_state:
       then:
