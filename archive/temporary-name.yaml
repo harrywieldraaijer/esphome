@@ -1,0 +1,32 @@
+esphome:
+  name: temporary-name
+  friendly_name: Temporary_Name
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "8V+roKgdNVXx9TpXXn+viA6JHz1Cv2+PufPMp+O05AY="
+
+ota:
+  - platform: esphome
+    password: "2d2d2ecf3cb0bdafed99b090f9985f26"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Temporary-Name Fallback Hotspot"
+    password: "2uTgsYABZMKA"
+
+captive_portal:
+    
