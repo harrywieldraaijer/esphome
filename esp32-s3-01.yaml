@@ -195,6 +195,17 @@ binary_sensor:
               checked: !lambda return x;
 
   - platform: homeassistant
+    id: light_sinklight_kitchen # Main light Kitchen
+    entity_id: light.relay_sonoff_01
+    trigger_on_initial_state: true
+    on_state:
+      then:
+        - lvgl.widget.update:
+            id: btn_sinklight
+            state:
+              checked: !lambda return x;
+              
+  - platform: homeassistant
     id: light_garage2
     entity_id: light.plug_livingroom_staandelamp
     trigger_on_initial_state: true
