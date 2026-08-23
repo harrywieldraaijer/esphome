@@ -737,7 +737,7 @@ lvgl:
               - homeassistant.action:
                   action: light.toggle
                   data:
-                    entity_id: light.plug_switch_power_02
+                    entity_id: light.dimmer_03
                    
         - slider:
             id: dimmer_slider
@@ -762,6 +762,12 @@ lvgl:
                           data:
                             entity_id: light.0xb40ecfd1a15a0000
                       # Repeat for area 3
+                      - homeassistant.action:
+                          action: light.turn_off
+                          data:
+                            entity_id: light.dimmer_03
+                      # Repeat for area 3
+
                     else:
                        - if:
                           condition:
@@ -781,6 +787,17 @@ lvgl:
                                   action: light.turn_on
                                   data:
                                     entity_id: light.0xb40ecfd1a15a0000
+                                    brightness: !lambda |-
+                                      return (int)(x * 255 / 100);
+
+                       - if:
+                          condition:
+                             binary_sensor.is_on: light_area_3
+                          then:
+                              - homeassistant.action:
+                                  action: light.turn_on
+                                  data:
+                                    entity_id: light.dimmer_03
                                     brightness: !lambda |-
                                       return (int)(x * 255 / 100);
 
