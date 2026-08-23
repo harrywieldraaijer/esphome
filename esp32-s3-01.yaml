@@ -9,6 +9,7 @@
 #
 # Version 1.0   Initional published version
 # Version 1.1   15-08-2026 13:40  Update button and label names
+# Version 1.2   23-08-2026 14:26  Update button button 3 for Dimmer03
 #
 #
 # ── Initiation section ──────────────────────────────────────────
@@ -250,7 +251,7 @@ binary_sensor:
               
   - platform: homeassistant
     id: light_area_3
-    entity_id: light.plug_switch_power_02
+    entity_id: light.dimmer_03
     trigger_on_initial_state: true
     on_state:
       then:
@@ -623,7 +624,7 @@ lvgl:
               - homeassistant.action:
                   action: light.toggle
                   data:
-                    entity_id: light.relay_sonoff_01
+                    entity_id: light.relay_sonoff_02
 
         # ── LIGHT BUTTONS ROW (below main button) ─────────────────────────────
         # ── All lights off ─────────────────────────────
