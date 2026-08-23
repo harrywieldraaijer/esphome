@@ -670,7 +670,7 @@ lvgl:
               - homeassistant.action:
                   action: light.turn_off
                   data:
-                    entity_id: light.plug_switch_power_02
+                    entity_id: light.dimmer_03
                     
 # Button 1 – toggles button Area 1
         - button:
@@ -742,7 +742,7 @@ lvgl:
             widgets:
               - label:
                   align: CENTER
-                  text: "Light\nReading"
+                  text: "Area 3"
                   text_font: montserrat_12
             on_click:
               - homeassistant.action:
