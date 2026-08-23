@@ -195,8 +195,8 @@ binary_sensor:
               checked: !lambda return x;
 
   - platform: homeassistant
-    id: light_sinklight_kitchen # Main light Kitchen
-    entity_id: light.relay_sonoff_01
+    id: light_sinklight_kitchen # Sink light Kitchen
+    entity_id: light.relay_sonoff_02
     trigger_on_initial_state: true
     on_state:
       then:
