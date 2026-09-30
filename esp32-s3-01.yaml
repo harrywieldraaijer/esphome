@@ -10,7 +10,8 @@
 # Version 1.0   Initional published version
 # Version 1.1   15-08-2026 13:40  Update button and label names
 # Version 1.2   23-08-2026 15:23  Update button button 3 for Dimmer03
-#
+# Version 1.2   23-08-2026 15:23  Update button button 3 for Dimmer03
+# Version 1.2   23-08-2026 15:23  Update button button 3 for Dimmer01
 #
 # ── Initiation section ──────────────────────────────────────────
 #
@@ -251,7 +252,7 @@ binary_sensor:
   
   - platform: homeassistant
     id: light_area_2
-    entity_id: light.0xb40ecfd1a15a0000
+    entity_id: light.dimmer_03
     trigger_on_initial_state: true
     on_state:
       then:
@@ -262,7 +263,7 @@ binary_sensor:
               
   - platform: homeassistant
     id: light_area_3
-    entity_id: light.dimmer_03
+    entity_id: light.dimmer_04
     trigger_on_initial_state: true
     on_state:
       then:
@@ -666,11 +667,11 @@ lvgl:
               - homeassistant.action:
                   action: light.turn_off
                   data:
-                    entity_id: light.0xb40ecfd1a15a0000
+                    entity_id: light.dimmer_03
               - homeassistant.action:
                   action: light.turn_off
                   data:
-                    entity_id: light.dimmer_03
+                    entity_id: light.dimmer_04
                     
 # Button 1 – toggles button Area 1
         - button:
@@ -722,7 +723,7 @@ lvgl:
               - homeassistant.action:
                   action: light.toggle
                   data:
-                    entity_id: light.0xb40ecfd1a15a0000
+                    entity_id: light.dimmer_03
                    
  # Button 3 – toggles button Area 3
         - button:
@@ -748,7 +749,7 @@ lvgl:
               - homeassistant.action:
                   action: light.toggle
                   data:
-                    entity_id: light.dimmer_03
+                    entity_id: light.dimmer_04
                    
         - slider:
             id: dimmer_slider
@@ -771,12 +772,12 @@ lvgl:
                       - homeassistant.action:
                           action: light.turn_off
                           data:
-                            entity_id: light.0xb40ecfd1a15a0000
+                            entity_id: light.dimmer_03
                       # Repeat for area 3
                       - homeassistant.action:
                           action: light.turn_off
                           data:
-                            entity_id: light.dimmer_03
+                            entity_id: light.dimmer_04
                       # Repeat for area 3
 
                     else:
@@ -797,7 +798,7 @@ lvgl:
                               - homeassistant.action:
                                   action: light.turn_on
                                   data:
-                                    entity_id: light.0xb40ecfd1a15a0000
+                                    entity_id: light.light.dimmer_03
                                     brightness: !lambda |-
                                       return (int)(x * 255 / 100);
 
@@ -808,7 +809,7 @@ lvgl:
                               - homeassistant.action:
                                   action: light.turn_on
                                   data:
-                                    entity_id: light.dimmer_03
+                                    entity_id: light.dimmer_04
                                     brightness: !lambda |-
                                       return (int)(x * 255 / 100);
 
