@@ -27,7 +27,6 @@ api:
 # Allow Over-The-Air updates
 ota:
   - platform: esphome
-    password: ae1f36e2382a850f20310557f33ce082
 
 # Allow provisioning Wi-Fi via serial
 improv_serial:
