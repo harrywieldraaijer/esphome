@@ -17,7 +17,6 @@ api:
 
 ota:
   - platform: esphome
-    password: "5850beb6455796d0c1389f09855f4887"
 
 wifi:
   ssid: !secret wifi_ssid
