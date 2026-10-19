@@ -11,8 +11,7 @@
 # Version 1.1   15-08-2026 13:40  Update button and label names
 # Version 1.2   23-08-2026 15:23  Update button button 3 for Dimmer03
 # Version 1.2   23-08-2026 15:23  Update button button 3 for Dimmer03
-# Version 1.2   23-08-2026 15:23  Update button button 3 for Dimmer01
-#
+# Version 1.2   19-10-2026 19:37  Added brightness for area2 and area3
 # ── Initiation section ──────────────────────────────────────────
 #
 esphome:
@@ -457,7 +456,50 @@ sensor:
                   id: dimmer_slider
                   value: !lambda |-
                     return (int)((x / 255.0) * 100);
+# Brightness of light_1 (used to sync the slider)
+ # Light 1 state (on/off)
+  - platform: homeassistant
+    id: light1_state
+    entity_id: light.dimmer_01
+    internal: true
 
+  - platform: homeassistant
+    id: ha_brightness
+    entity_id: light.dimmer_01
+    attribute: brightness
+    internal: true
+    on_value:
+      then:
+        - if:
+            condition:
+              lambda: 'return !isnan(x);'
+            then:
+              - lvgl.slider.update:
+                  id: dimmer_slider
+                  value: !lambda |-
+                    return (int)((x / 255.0) * 100);
+# Brightness of light_1 (used to sync the slider)
+ # Light 1 state (on/off)
+  - platform: homeassistant
+    id: light1_state
+    entity_id: light.dimmer_01
+    internal: true
+
+  - platform: homeassistant
+    id: ha_brightness
+    entity_id: light.dimmer_01
+    attribute: brightness
+    internal: true
+    on_value:
+      then:
+        - if:
+            condition:
+              lambda: 'return !isnan(x);'
+            then:
+              - lvgl.slider.update:
+                  id: dimmer_slider
+                  value: !lambda |-
+                    return (int)((x / 255.0) * 100);
 # ── LVGL UI ───────────────────────────────────────────────────────────────────
 #
 #  Page 2 layout (480×480):
